@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-# Function to extract usernames from an Instagram HTML file
+# Function for username extraction from the files
 def extract_usernames(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         soup = BeautifulSoup(file, 'lxml')
@@ -8,7 +8,7 @@ def extract_usernames(file_path):
     usernames = [a.get_text() for a in soup.find_all('a') if a.get_text()]
     return set(usernames)
 
-# Paths to your HTML files
+# Paths to the HTML files form instagram
 following_file = 'following.html'
 followers_file = 'followers_1.html'
 
